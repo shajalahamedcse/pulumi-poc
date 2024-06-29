@@ -23,5 +23,11 @@ jobs:
           python -m venv venv
           source venv/bin/activate
           pip install pulumi pulumi-aws
-          
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with: 
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${secrets.AWS_SECRET_ACCESSS_KEY}
+          aws-region: ap-southeast-1
 
