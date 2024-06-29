@@ -64,7 +64,7 @@ security_group = aws.ec2.SecurityGroup("web-secgrp",
 )
 
 
-ami_id = "ami-008c09a18ce321b3c"  # Replace with a valid AMI ID for your region
+ami_id = "ami-003c463c8207b4dfa"  # Replace with a valid AMI ID for your region
 instance_type = "t3.small"
 
 # Read the public key from the environment (set by GitHub Actions)
