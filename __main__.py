@@ -15,3 +15,5 @@ public_subnet = aws.ec2.Subnet("public-subnet",
     map_public_ip_on_launch=True,
     availability_zone='ap-southeast-1a',
     )
+
+igw = aws.ec2.InternetGateway("igw",vpc_id=vpc.id)
