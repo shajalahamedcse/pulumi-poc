@@ -36,3 +36,8 @@ jobs:
           PULUMI_ACCESS_TOKEN: ${{secrets.PULUMI_ACCESS_TOKEN}}
         run: pulumi login
 
+      - name: Pulumi Stack Select
+        run: pulumi stack select shajalahamedcse/code/dev
+
+      - name: Pulumi Up
+        run: pulumi up --yes
