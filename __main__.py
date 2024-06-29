@@ -84,6 +84,39 @@ master_node = aws.ec2.Instance("master-node",
     tags={
         "Name": "master-node"
     })
-    
+
+
+worker_node_1 = aws.ec2.Instance("worker-node-1",
+    instance_type=instance_type,
+    ami=ami_id,
+    subnet_id=public_subnet.id,
+    key_name=key_pair.key_name,
+    vpc_security_group_ids=[security_group.id],
+    tags={
+        "Name": "worker-node-1"
+    })
+
+worker_node_2 = aws.ec2.Instance("worker-node-2",
+    instance_type=instance_type,
+    ami=ami_id,
+    subnet_id=public_subnet.id,
+    key_name=key_pair.key_name,
+    vpc_security_group_ids=[security_group.id],
+    tags={
+        "Name": "worker-node-2"
+    })
+
+
+# Create Nginx instance
+nginx_instance = aws.ec2.Instance("nginx-instance",
+    instance_type=instance_type,
+    ami=ami_id,
+    subnet_id=public_subnet.id,
+    key_name=key_pair.key_name,
+    vpc_security_group_ids=[security_group.id],
+    tags={
+        "Name": "nginx-instance"
+    })
+
 # Export outputs
 pulumi.export("master_public_ip", master_node.public_ip)
