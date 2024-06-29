@@ -63,13 +63,14 @@ security_group = aws.ec2.SecurityGroup("web-secgrp",
 ami_id = "ami-008c09a18ce321b3c"  # Replace with a valid AMI ID for your region
 instance_type = "t3.small"
 
-
+# Read the public key from the environment (set by GitHub Actions)
+public_key = os.getenv("PUBLIC_KEY")
 # Create the EC2 KeyPair using the public key
 key_pair = aws.ec2.KeyPair("my-key-pair",
     key_name="my-key-pair",
     public_key=public_key)
 
-    
+
 master_node = aws.ec2.Instance("master-node",
     instance_type=instance_type,
     ami=ami_id,
